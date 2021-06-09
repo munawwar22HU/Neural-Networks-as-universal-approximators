@@ -1,0 +1,101 @@
+##################  Samad to Usaid ################################# (0.5 Minutes) 
+Hello Everyone, I'm Usaid and I'm presenting with Khubaib and Munawwar.
+So today we will talk about the power of Neural Networks to approximate natural 
+functions or more specifically to approximate multivariate polynomials. Then we will
+try to understand the advantages of going deep and using more hidden layers on the
+performance, both theoretically and with some visual and mathematical examples.
+This is the flow of our presentation.
+
+##################  Usaid to Munawwar ################################# (1 Minute)
+
+Slide 1 : In 1989 Cybenko in his paper proved the universality of Neural Networks that is even with  a single hidden layer they can compute any function. {Next}
+Slide 2 : Neural Nets cannot used to exactly compute any function instead they approximate. If the function is discontinuous, Neural 
+networks cannot be used to approximate the function. This is because the Neural Networks compute the continuous function of the input.{Next}
+Slide 3 : Neural Networks with a single hidden layer can approximate any continuous function to any desired precision.{Next}
+Slide 4 : In 2017, it was proved that it is exponentially more efficient to use deep networks when Taylor approximating
+the product of input variables.{Next}
+Slide 5 : Outcomes. It is possible to achieve good approximations of simple univariate and multivariate polynomials using a  bounded number of neurons.
+It is exponentially better to approximate these polynomials using the deep networks.
+##################  Munawwar to Khubaib #################################
+
+
+Slide 6 : So we are going to prove a minimum bound of neurons for approximating multivariate functions but before that we will look at some definitions regarding approximations
+So epsilon approximation is that for any epsilon, within a particular domain, the max distance between the function and neural network's output is less than epsilon.  
+Slide 7 : Over here, we can see an example to see the concept of epsilon approximation. we can see that the difference between the pink and blue function at 0.5 is epsilon and as we go on, the distance reduces. If our range is the open interval from 0.5 to 3, we can see that the max difference is always less than epsilon and hence the pink function is an epsilon approximation of the blue function over the range 0.5 to 3. 
+Slide 8 : Now Taylor approximation. A network taylor approximates a polynomial p(x) of degree d, if p(x) is the dth order taylor polynomial of the network's function about the origin.
+Slide 9 : So what does a taylor approximation look like with multivariate polynomials. Well this is what it looks likw in 2d. On the left we can see taylor the first degree taylor polynomial of our function, and on the right, we can see the second degree polynomial of our function
+Slide 10 : Now the thing is that if our network taylor approximates a homogeneous multivariate polynomial then for every epsilon there is a netwrok that epsilon approximates our function such that these two networks have the same number of neurons in each layer
+Slide 11 : Ok. Now the theorem. We are going to prove that if we have a function p(x) of degree d, and the activation function, if I take the s- degree taylor approximation of it, then there are nonzero coefficients up to degree d, then we have  finite amount of neurons in a depth k network that epsilon approximates p 
+Slide 12 : p is a polynomial function, we can break the polynomial down into its individual components, monomials. There is a theorem that products can be taylor approximated with one hidden layer and since a monomial is a product it can be approximated with just one layer.
+Slide 13 : We can break down our polynomial into s monomials and we can for each monomial create a network with just one hidden layer to approximate it.
+Slide 14 : since each multinomial is a homogeneous function, we can delta approximate it, with mi neurons. lets set delta as epsilon/s. Now we can combine the networks that we have with a new network that is sum of these networks. and that network will have all the neurons from each of the network
+Slide 15 : We can verify that this is an epsilon network by seeing the difference by each monomial. since we delta approximated, it is delta, and since we have delta monomials, the total distance in s delta, which is equals to epsilon, so our network does epsilon approximate any multivariate polynomial with finite number of layers.
+Slide 16 : Since we can do it for one layer, we can do it with k layers as well, since we can can construct it from depth 1.
+
+##################  Khubaib to Usaid #################################
+
+
+
+Slide 17 : So now we will talk about deep Networks and having more than just one layer.
+We now understand that with one layer you can approximate any function under
+reasonable assumptions. But there is a problem with that. Mathematicians just
+showed that it is possible and then there work is done but computer scientists are
+also concerned about how efficient it will be because we don't have infinite 
+number of neurons and computation power like mathematicians think. We are limited
+by hardware and computation power. That's where the idea of adding more layers
+comes in and we will see that it provides exponential advantage over single layer.
+We will answer some questions like how deep is deep enough and how much efficient
+it is with respect to shallow networks.
+
+Slide 18 :  So hang in there because as Lenoard said
+we need to go deeper.
+Slide 19 : So I will take about some theorems and don't worry because we will not go into
+the proves here and will just understand what it is saying. This first theorem says
+that Suppose we have this monomial with degree d which is just the sum of 
+all the powers. And we have an activation function which has 
+Taylor coefficients upto 2d which is twice of degree. Then we have the
+min number of neurons required in one layer as m1(p) 
+Slide 20 : Improvise
+Slide 21 : //
+Slide 22 : //
+ 
+##################  Usaid to Munawwar #################################
+
+Slide 23 : Now let's see Theorem 2.2 in action. Consider f(x,y) = x^8 y^8.The optimizer algorithm used was Adam and the activation function was Tanh {Next}
+Slide 24 : If we are using a single hidden layer, then we require a minimum of 81 neurons.{Next}
+Slide 25 : The shallow network approximated f(x) with MSE 0.06 {Next}
+Slide 26 : If we are using two hidden layers, then we require 25 neurons in each layer.{Next}
+Slide 27 : The deep network approximated f(x) with MSE 0.00 {Next}
+Slide 28 : Khubaib and Usaid have bored you with too much math .So let's take a look at a visual proof on the Neural Network's universality. We will be using 2 hidden layers in this proof. {Next}
+Slide 29 : The output from the top neuron in the hidden layer is equal to sigma(omega x+b) where sigma is the sigmoid function,
+omega is the weight and b is the bias.{Next}
+
+***********************
+Show Video 1
+***********************
+Increasing the value of the bias shifts the graph to the left whereas decreasing the value of the bias shifts the graph to the right.On the other hand,omega controls the steepness of the curve.{Next}
+
+Slide 30 : Setting the value of omega to a high value causes the graph to act as a step function . it is more easy to understand the sum of step functions. {Next}
+Slide 31 : The position of the step is proportional to bias and inversely proportional to omega {Next}
+Slide 32 : Keeping the omega as constant allows us to describe a neuron using a single parameter s = -bias/omega. {Next}
+Slide 33 : Now let's look at the weighted output from the hidden layer. {Next}
+Slide 34 : Adding negative weights allows us to create rectangles.{Next}
+Slide 35 : In order to avoid, the cluttering of diagrams we can use an another parameter h to represent the height of the rectangle
+Slide 36 : to generate N peaks, we can use N pair of neurons in the hidden layer and divide the interval into N sub-intervals {Next}
+Slide 37 : Consider f(x) is the function which we want to approximate. {Next}
+Slide 38 : We saw that all the parameters control the output from the hidden layer. We need to find a way to control the output from the final layer. Therefore, the output of the hidden layer should be equal to sigma^-1 f(x)
+Slide 39 : We have approximated sigma^-1 f(x) with 10 neurons and average deviation of 0.40. We can increase neurons to have better results.{Next}
+Slide 40 : These ideas can be extended to the a neural with 2 input and output. We can focus on one input by setting one of the weights equal to zero {Next}
+Slide 41 : The position of the x step is equal -bias/w1 {Next}
+Slide 42 : The position of the y step is equal to -bias/w2 {Next}
+Slide 43 : The weighted output in the x-direction{Next}
+Slide 44 : The weighted output in the y-direction{Next}
+Slide 45 : The weighted output from the hidden layer{Next}
+Slide 46 : In case of 2 input variables, we generate towers. {Next}
+Slide 47 : We can combine the output from first hidden layer in the second layer to generate multiple towers {Next}
+Slide 48 : Increasing the number of neurons in the first hidden layer can allow us to generate multiple towers {Next}
+Slide 53 : These ideas can be extended to neural nets with 3 inputs. {Next}
+Slide 54 : Thankyou. {Next}
+Slides 55 : These were the refrences that were used. {Next}
+
+
